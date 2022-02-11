@@ -4,5 +4,5 @@
         android:state_pressed="true" />
     <item android:drawable="@drawable/ic_selected_pencil"
         android:state_focused="true" />
-    <item android:drawable="@drawable/ic_pencil_black" />
+    <item android:drawable="@drawable/ic_unselected_pencil" />
 </selector>

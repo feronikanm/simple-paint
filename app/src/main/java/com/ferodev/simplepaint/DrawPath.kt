@@ -6,6 +6,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import com.ferodev.simplepaint.MainActivity.Companion.colorList
+import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
 import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
 import com.ferodev.simplepaint.MainActivity.Companion.path
 
@@ -17,8 +19,6 @@ class DrawPath : View {
     companion object {
         private const val TOUCH_TOLERANCE = 4f
         var pathList = ArrayList<Path>()
-        var colorList = ArrayList<Int>()
-        var currentBrush = Color.BLACK
     }
 
     private var mX = 0f
@@ -92,13 +92,16 @@ class DrawPath : View {
     }
 
     override fun onDraw(canvas: Canvas) {
+
+        canvas.drawCircle(200F, 200F, 150F, paintBrush)
+        canvas.drawLine(50F, 100F, 600F, 600F, paintBrush)
+        canvas.drawLine(50F, 550F, 770F, 0F, paintBrush)
+        canvas.drawRect(30F, 30F, 500F, 200F, paintBrush)
+
         for (i in pathList.indices){
             paintBrush.setColor(colorList[i])
             canvas.drawPath(pathList[i], paintBrush)
-            canvas.drawCircle(200F, 200F, 150F, paintBrush)
-            canvas.drawLine(50F, 100F, 600F, 600F, paintBrush)
-            canvas.drawLine(50F, 550F, 770F, 0F, paintBrush)
-            canvas.drawRect(30F, 30F, 500F, 200F, paintBrush);
+
             invalidate()
         }
     }

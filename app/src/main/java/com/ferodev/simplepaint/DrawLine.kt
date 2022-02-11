@@ -1,13 +1,13 @@
 package com.ferodev.simplepaint
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PointF
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.ferodev.simplepaint.MainActivity.Companion.colorList
+import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
+import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
 
 class DrawLine @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -15,19 +15,17 @@ class DrawLine @JvmOverloads constructor(
 
     private var startPoint : PointF? = null
     private var endPoint : PointF? = null
-    private var paint: Paint? = null
     private var isDrawing = false
 
     init {
-        paint = Paint()
-        paint!!.color = Color.BLACK
-        paint!!.strokeWidth = 10f
-        paint!!.isAntiAlias = true
+        paintBrush.color = currentBrush
+        paintBrush.strokeWidth = 10f
+        paintBrush.isAntiAlias = true
     }
 
     override fun onDraw(canvas: Canvas?) {
         if (isDrawing) {
-            canvas!!.drawLine(startPoint!!.x, startPoint!!.y, endPoint!!.x, endPoint!!.y, paint!!)
+            canvas!!.drawLine(startPoint!!.x, startPoint!!.y, endPoint!!.x, endPoint!!.y, paintBrush)
         }
     }
 
@@ -36,6 +34,7 @@ class DrawLine @JvmOverloads constructor(
             MotionEvent.ACTION_DOWN -> {
                 startPoint = PointF(event.x, event.y)
                 endPoint = PointF()
+                colorList.add(currentBrush)
                 isDrawing = true
             }
             MotionEvent.ACTION_MOVE -> {

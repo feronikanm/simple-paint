@@ -4,13 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable-v24/ic_selected_pencil.xml" value="0.1" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/background_card.xml" value="0.114" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/background_cards.xml" value="0.104" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/bg.xml" value="0.114" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/button_custom.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/color_palette_blue.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_north_east_black.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_pencil_black.xml" value="0.1" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_round_square_24.xml" value="0.2105" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_arrow.xml" value="0.2205" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_circle.xml" value="0.2205" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_palette.xml" value="0.2205" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_pencil.xml" value="0.1" />
-        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_rectangle.xml" value="0.2205" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_square.xml" value="0.2105" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_arrow.xml" value="0.2205" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_circle.xml" value="0.2205" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_palette.xml" value="0.2205" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_pencil.xml" value="0.114" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_rectangle.xml" value="0.114" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_square.xml" value="0.2105" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/draw_ellipse_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/draw_line_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/draw_path_layout.xml" value="0.36666666666666664" />

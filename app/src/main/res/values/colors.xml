@@ -10,5 +10,6 @@
     <color name="red">#fb0008</color>
     <color name="green">#007f00</color>
     <color name="blue">#0078de</color>
-    <color name="selected_icon">#e4e4e4</color>
+    <color name="background_selected_icon">#e4e4e4</color>
+    <color name="unselected_icon">#747474</color>
 </resources>

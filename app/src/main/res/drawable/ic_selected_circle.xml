@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+
     <group>
         <path
             android:name="square"
@@ -11,8 +11,6 @@
             android:pathData="M0,0 L24,0 L24,24 L0,24 z" />
         <path
             android:fillColor="@color/black"
-            android:pathData="M22,24H2v-4h20V24zM13.06,5.19l3.75,3.75L7.75,18H4v-3.75L13.06,5.19zM17.88,7.87l-3.75,-3.75l1.83,-1.83c0.39,-0.39 1.02,-0.39 1.41,0l2.34,2.34c0.39,0.39 0.39,1.02 0,1.41L17.88,7.87z" />
+            android:pathData="M12,2C6.47,2 2,6.47 2,12c0,5.53 4.47,10 10,10s10,-4.47 10,-10C22,6.47 17.53,2 12,2zM12,20c-4.42,0 -8,-3.58 -8,-8c0,-4.42 3.58,-8 8,-8s8,3.58 8,8C20,16.42 16.42,20 12,20z" />
     </group>
-
-
 </vector>
