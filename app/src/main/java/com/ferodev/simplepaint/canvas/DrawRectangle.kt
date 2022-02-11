@@ -1,18 +1,20 @@
-package com.ferodev.simplepaint
+package com.ferodev.simplepaint.canvas
 
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.ferodev.simplepaint.MainActivity
 import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
 import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
+import com.ferodev.simplepaint.cons.Rectangle
 
-class DrawEllipse @JvmOverloads constructor(
+class DrawRectangle @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private val ellipse = ArrayList<Ellipse>()
+    private val rectangle = ArrayList<Rectangle>()
 
     init {
         paintBrush.color = currentBrush
@@ -21,22 +23,22 @@ class DrawEllipse @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        for (e in ellipse) {
-            paintBrush.color = e.color
-            canvas.drawOval(e.startX, e.startY, e.stopX, e.stopY, paintBrush)
+        for (r in rectangle) {
+            paintBrush.color = r.color
+            canvas.drawRect(r.startX, r.startY, r.stopX, r.stopY, paintBrush)
         }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when(event.action){
             MotionEvent.ACTION_DOWN -> {
-                MainActivity.colorList.add(MainActivity.currentBrush)
-                ellipse.add(Ellipse(event.x, event.y,event.x, event.y, currentBrush))
+                MainActivity.colorList.add(currentBrush)
+                rectangle.add(Rectangle(event.x, event.y,event.x, event.y, currentBrush))
                 return true
             }
 
             MotionEvent.ACTION_MOVE -> {
-                val current = ellipse[ellipse.size - 1]
+                val current = rectangle[rectangle.size - 1]
                 current.stopX = event.x
                 current.stopY = event.y
                 invalidate()
@@ -44,7 +46,7 @@ class DrawEllipse @JvmOverloads constructor(
             }
 
             MotionEvent.ACTION_UP -> {
-                val current = ellipse[ellipse.size - 1]
+                val current = rectangle[rectangle.size - 1]
                 current.stopX = event.x
                 current.stopY = event.y
                 invalidate()

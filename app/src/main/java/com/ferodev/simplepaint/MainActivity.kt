@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ferodev.simplepaint.DrawPath.Companion.pathList
+import com.ferodev.simplepaint.canvas.DrawPath.Companion.pathList
 import com.ferodev.simplepaint.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-//    private lateinit var paintBinding: PaintViewLayoutBinding
-//    private lateinit var paint: PaintView
 
     private var isPencilIconClicked = false
     private var isArrowIconClicked = false
@@ -24,19 +22,14 @@ class MainActivity : AppCompatActivity() {
         var path = Path()
         var paintBrush = Paint()
         var colorList = ArrayList<Int>()
-        var colorLineList = ArrayList<Int>()
         var currentBrush = Color.BLACK
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-//        paintBinding = binding.paint
         setContentView(binding.root)
         supportActionBar?.hide()
-
-//        paint = paintBinding.paintView
-
 
         binding.btnPencil.setOnClickListener {
             Toast.makeText(this, "Pencil Clicked", Toast.LENGTH_LONG).show()

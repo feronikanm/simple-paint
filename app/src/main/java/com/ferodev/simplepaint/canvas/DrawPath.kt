@@ -1,4 +1,4 @@
-package com.ferodev.simplepaint
+package com.ferodev.simplepaint.canvas
 
 import android.content.Context
 import android.graphics.*
@@ -86,7 +86,6 @@ class DrawPath @JvmOverloads constructor(
         for (i in pathList.indices){
             paintBrush.setColor(colorList[i])
             canvas.drawPath(pathList[i], paintBrush)
-
             invalidate()
         }
     }

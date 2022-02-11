@@ -122,38 +122,31 @@
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/color_palate">
 
-        <com.ferodev.simplepaint.DrawPath
+        <com.ferodev.simplepaint.canvas.DrawPencil
             android:id="@+id/draw_path"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>
 
-        <com.ferodev.simplepaint.DrawLine
+        <com.ferodev.simplepaint.canvas.DrawLine
             android:id="@+id/draw_line"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>
 
-        <com.ferodev.simplepaint.DrawRectangle
+        <com.ferodev.simplepaint.canvas.DrawRectangle
             android:id="@+id/draw_rectangle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>
 
-        <com.ferodev.simplepaint.DrawEllipse
+        <com.ferodev.simplepaint.canvas.DrawEllipse
             android:id="@+id/draw_ellipse"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>
 
-
-
-
-<!--        <include android:id="@+id/paint"-->
-<!--            layout="@layout/draw_path_layout" />-->
-
     </RelativeLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

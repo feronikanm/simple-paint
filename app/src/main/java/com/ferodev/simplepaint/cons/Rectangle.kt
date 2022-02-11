@@ -1,4 +1,4 @@
-package com.ferodev.simplepaint
+package com.ferodev.simplepaint.cons
 
 class Rectangle {
 

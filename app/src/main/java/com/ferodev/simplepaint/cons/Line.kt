@@ -1,6 +1,6 @@
-package com.ferodev.simplepaint
+package com.ferodev.simplepaint.cons
 
-class Ellipse {
+class Line {
 
     var startX : Float = 0F
     var startY : Float = 0F
