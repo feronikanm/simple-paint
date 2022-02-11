@@ -9,6 +9,7 @@
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/bg.xml" value="0.114" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/button_custom.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/color_palette_blue.xml" value="0.1" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.183" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_north_east_black.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_pencil_black.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_round_square_24.xml" value="0.2105" />
@@ -31,6 +32,8 @@
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/draw_rectangle_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/paint_view.xml" value="0.14" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/paint_view_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.183" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.183" />
       </map>
     </option>
   </component>

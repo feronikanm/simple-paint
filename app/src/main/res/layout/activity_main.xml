@@ -118,7 +118,7 @@
             android:id="@+id/draw_path"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <com.ferodev.simplepaint.canvas.DrawLine
             android:id="@+id/draw_line"
