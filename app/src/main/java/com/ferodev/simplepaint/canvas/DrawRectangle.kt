@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.ferodev.simplepaint.MainActivity
+import com.ferodev.simplepaint.MainActivity.Companion.colorList
 import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
 import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
 import com.ferodev.simplepaint.cons.Rectangle
@@ -34,7 +35,7 @@ class DrawRectangle @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when(event.action){
             MotionEvent.ACTION_DOWN -> {
-                MainActivity.colorList.add(currentBrush)
+                colorList.add(currentBrush)
                 rectangle.add(Rectangle(event.x, event.y,event.x, event.y, currentBrush))
                 return true
             }
