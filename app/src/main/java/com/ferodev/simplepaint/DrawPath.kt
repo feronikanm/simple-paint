@@ -12,7 +12,9 @@ import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
 import com.ferodev.simplepaint.MainActivity.Companion.path
 
 
-class DrawPath : View {
+class DrawPath @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     var params : ViewGroup.LayoutParams? = null
 
@@ -24,19 +26,8 @@ class DrawPath : View {
     private var mX = 0f
     private var mY = 0f
 
-    constructor(context: Context) : this(context, null){
-        init()
-    }
 
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0){
-        init()
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttrs: Int) : super(context, attrs, defStyleAttrs){
-        init()
-    }
-
-    private fun init(){
+    init{
         paintBrush.isAntiAlias = true
         paintBrush.isDither = true
         paintBrush.color = currentBrush
@@ -92,12 +83,6 @@ class DrawPath : View {
     }
 
     override fun onDraw(canvas: Canvas) {
-
-        canvas.drawCircle(200F, 200F, 150F, paintBrush)
-        canvas.drawLine(50F, 100F, 600F, 600F, paintBrush)
-        canvas.drawLine(50F, 550F, 770F, 0F, paintBrush)
-        canvas.drawRect(30F, 30F, 500F, 200F, paintBrush)
-
         for (i in pathList.indices){
             paintBrush.setColor(colorList[i])
             canvas.drawPath(pathList[i], paintBrush)

@@ -128,7 +128,7 @@
             android:layout_height="match_parent"
             android:visibility="gone"/>
 
-        <com.ferodev.simplepaint.DrawGaris
+        <com.ferodev.simplepaint.DrawLine
             android:id="@+id/draw_line"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

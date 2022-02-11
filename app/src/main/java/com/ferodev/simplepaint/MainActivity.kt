@@ -1,6 +1,5 @@
 package com.ferodev.simplepaint
 
-import android.app.PendingIntent.getActivity
 import android.graphics.*
 import android.os.Bundle
 import android.view.View
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         var path = Path()
         var paintBrush = Paint()
         var colorList = ArrayList<Int>()
+        var colorLineList = ArrayList<Int>()
         var currentBrush = Color.BLACK
     }
 
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.drawRectangle.visibility = View.VISIBLE
                 binding.drawPath.visibility = View.GONE
-                binding.drawLine.visibility = View.VISIBLE
+                binding.drawLine.visibility = View.GONE
                 binding.drawEllipse.visibility = View.GONE
 
             }else{
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.drawEllipse.visibility = View.VISIBLE
                 binding.drawPath.visibility = View.GONE
-                binding.drawLine.visibility = View.VISIBLE
+                binding.drawLine.visibility = View.GONE
                 binding.drawRectangle.visibility = View.GONE
 
             }else{
@@ -159,6 +159,8 @@ class MainActivity : AppCompatActivity() {
             isPaletteIconClicked = !isPaletteIconClicked
 
             if (isPaletteIconClicked){
+                binding.colorPalate.visibility = View.VISIBLE
+
                 binding.btnPallete.setImageResource(R.drawable.ic_selected_palette)
                 binding.btnPallete.setBackgroundResource(R.drawable.background_cards)
 
@@ -170,8 +172,6 @@ class MainActivity : AppCompatActivity() {
                 binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
                 binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
                 binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
-
-                binding.colorPalate.visibility = View.VISIBLE
             }else{
                 binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
                 binding.btnPallete.setBackgroundResource(R.drawable.background_card)

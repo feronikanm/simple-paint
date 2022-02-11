@@ -13,9 +13,7 @@ class DrawLine @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private var startPoint : PointF? = null
-    private var endPoint : PointF? = null
-    private var isDrawing = false
+    private val line = ArrayList<Line>()
 
     init {
         paintBrush.color = currentBrush
@@ -23,35 +21,40 @@ class DrawLine @JvmOverloads constructor(
         paintBrush.isAntiAlias = true
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        if (isDrawing) {
-            canvas!!.drawLine(startPoint!!.x, startPoint!!.y, endPoint!!.x, endPoint!!.y, paintBrush)
+    override fun onDraw(canvas: Canvas) {
+        for (l in line) {
+            paintBrush.color = l.color
+            canvas.drawLine(l.startX, l.startY, l.stopX, l.stopY, paintBrush)
         }
     }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        when (event!!.action) {
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when(event.action){
             MotionEvent.ACTION_DOWN -> {
-                startPoint = PointF(event.x, event.y)
-                endPoint = PointF()
                 colorList.add(currentBrush)
-                isDrawing = true
+                line.add(Line(event.x, event.y,event.x, event.y, currentBrush))
+                return true
             }
-            MotionEvent.ACTION_MOVE -> {
-                endPoint!!.x = event.x
-                endPoint!!.y = event.y
-                invalidate()
-            }
-            MotionEvent.ACTION_UP -> {
-                endPoint!!.x = event.x
-                endPoint!!.y = event.y
-                isDrawing = false
-                invalidate()
-            }
-            else -> {
 
+            MotionEvent.ACTION_MOVE -> {
+                val current = line[line.size - 1]
+                current.stopX = event.x
+                current.stopY = event.y
+                invalidate()
+                return true
+            }
+
+            MotionEvent.ACTION_UP -> {
+                val current = line[line.size - 1]
+                current.stopX = event.x
+                current.stopY = event.y
+                invalidate()
+                return true
+            }
+
+            else -> {
+                return false
             }
         }
-        return true
     }
 }
