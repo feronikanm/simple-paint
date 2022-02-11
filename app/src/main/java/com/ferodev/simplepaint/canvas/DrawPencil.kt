@@ -3,12 +3,10 @@ package com.ferodev.simplepaint.canvas
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.graphics.Path
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import com.ferodev.simplepaint.MainActivity
 import com.ferodev.simplepaint.MainActivity.Companion.colorList
 import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
 import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
@@ -23,7 +21,7 @@ class DrawPencil @JvmOverloads constructor(
 
     companion object {
         private const val TOUCH_TOLERANCE = 4f
-        private var pathList = ArrayList<Pencil>()
+        var pencil = ArrayList<Pencil>()
     }
 
     private var mX = 0f
@@ -46,7 +44,7 @@ class DrawPencil @JvmOverloads constructor(
     private fun touchStart(x: Float, y: Float) {
 
         val p = Pencil(currentBrush, path)
-        pathList.add(p)
+        pencil.add(p)
         colorList.add(currentBrush)
         path.moveTo(x, y)
         mX = x
@@ -88,9 +86,9 @@ class DrawPencil @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        for (i in pathList){
-            paintBrush.color = i.color
-            canvas.drawPath(i.path!!, paintBrush)
+        for (p in pencil){
+            paintBrush.color = p.color
+            canvas.drawPath(p.path!!, paintBrush)
             invalidate()
         }
     }

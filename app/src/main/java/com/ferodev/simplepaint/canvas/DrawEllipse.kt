@@ -15,7 +15,9 @@ class DrawEllipse @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private val ellipse = ArrayList<Ellipse>()
+    companion object{
+        var ellipse = ArrayList<Ellipse>()
+    }
 
     init {
         paintBrush.color = currentBrush

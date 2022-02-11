@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ferodev.simplepaint.canvas.DrawEllipse.Companion.ellipse
+import com.ferodev.simplepaint.canvas.DrawLine.Companion.line
 import com.ferodev.simplepaint.canvas.DrawPath.Companion.pathList
+import com.ferodev.simplepaint.canvas.DrawPencil.Companion.pencil
+import com.ferodev.simplepaint.canvas.DrawRectangle.Companion.rectangle
 import com.ferodev.simplepaint.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         binding.btnPencil.setOnClickListener {
-            Toast.makeText(this, "Pencil Clicked", Toast.LENGTH_LONG).show()
-
             // Untuk mengganti dari false menjadi true
             isPencilIconClicked = !isPencilIconClicked
 
@@ -62,8 +64,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnArrow.setOnClickListener {
-            Toast.makeText(this, "Arrow Clicked", Toast.LENGTH_LONG).show()
-
             isArrowIconClicked = !isArrowIconClicked
             if (isArrowIconClicked){
                 binding.btnArrow.setImageResource(R.drawable.ic_selected_arrow)
@@ -90,8 +90,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRectangle.setOnClickListener {
-            Toast.makeText(this, "Rectangle Clicked", Toast.LENGTH_LONG).show()
-
             isRectangleIconClicked = !isRectangleIconClicked
             if (isRectangleIconClicked){
                 binding.btnRectangle.setImageResource(R.drawable.ic_selected_rectangle)
@@ -118,8 +116,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnEllipse.setOnClickListener {
-            Toast.makeText(this, "Ellipse Clicked", Toast.LENGTH_LONG).show()
-
             isCircleIconClicked = !isCircleIconClicked
 
             if (isCircleIconClicked){
@@ -147,8 +143,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnPallete.setOnClickListener {
-            Toast.makeText(this, "Palette Clicked", Toast.LENGTH_LONG).show()
-
             isPaletteIconClicked = !isPaletteIconClicked
 
             if (isPaletteIconClicked){
@@ -173,7 +167,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRed.setOnClickListener {
-            Toast.makeText(this, "Red Clicked", Toast.LENGTH_LONG).show()
             paintBrush.color = resources.getColor(R.color.red)
             currentColor(paintBrush.color)
             binding.colorPalate.visibility = View.INVISIBLE
@@ -182,7 +175,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnGreen.setOnClickListener {
-            Toast.makeText(this, "Green Clicked", Toast.LENGTH_LONG).show()
             paintBrush.color = resources.getColor(R.color.green)
             currentColor(paintBrush.color)
             binding.colorPalate.visibility = View.INVISIBLE
@@ -191,7 +183,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnBlue.setOnClickListener {
-            Toast.makeText(this, "Blue Clicked", Toast.LENGTH_LONG).show()
             paintBrush.color = resources.getColor(R.color.blue)
             currentColor(paintBrush.color)
             binding.colorPalate.visibility = View.INVISIBLE
@@ -200,19 +191,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnBlack.setOnClickListener {
-            Toast.makeText(this, "Black Clicked", Toast.LENGTH_LONG).show()
             paintBrush.color = Color.BLACK
             currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-        }
-
-        binding.btnWhite.setOnClickListener {
-            Toast.makeText(this, "White Clicked", Toast.LENGTH_LONG).show()
-            pathList.clear()
-            colorList.clear()
-            path.reset()
             binding.colorPalate.visibility = View.INVISIBLE
             binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
             binding.btnPallete.setBackgroundResource(R.drawable.background_card)

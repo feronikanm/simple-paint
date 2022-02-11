@@ -106,14 +106,6 @@
             android:layout_margin="10dp"
             android:layout_toEndOf="@+id/btn_blue"
             android:background="@drawable/color_palette_black" />
-
-        <ImageButton
-            android:id="@+id/btn_white"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:layout_toEndOf="@+id/btn_black"
-            android:background="@drawable/color_palette_white" />
     </RelativeLayout>
 
     <RelativeLayout

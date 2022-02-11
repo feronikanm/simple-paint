@@ -14,7 +14,9 @@ class DrawLine @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private val line = ArrayList<Line>()
+    companion object{
+        var line = ArrayList<Line>()
+    }
 
     init {
         paintBrush.color = currentBrush
