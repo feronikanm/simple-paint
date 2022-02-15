@@ -34,7 +34,7 @@
             android:layout_margin="10dp"
             android:background="@null"
             android:layout_toEndOf="@+id/btn_pencil"
-            android:src="@drawable/ic_unselected_arrow" />
+            android:src="@drawable/ic_unselected_line" />
 
         <ImageButton
             android:id="@+id/btn_rectangle"
@@ -77,34 +77,42 @@
         app:layout_constraintTop_toBottomOf="@+id/action">
 
         <ImageButton
+            android:id="@+id/btn_blue"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/color_palette_google_blue" />
+
+        <ImageButton
             android:id="@+id/btn_red"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:background="@drawable/color_palette_red" />
+            android:layout_toEndOf="@+id/btn_blue"
+            android:background="@drawable/color_palette_google_red" />
+
+        <ImageButton
+            android:id="@+id/btn_yellow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_red"
+            android:background="@drawable/color_palette_google_yellow" />
 
         <ImageButton
             android:id="@+id/btn_green"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:layout_toEndOf="@+id/btn_red"
-            android:background="@drawable/color_palette_green" />
-
-        <ImageButton
-            android:id="@+id/btn_blue"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:layout_toEndOf="@+id/btn_green"
-            android:background="@drawable/color_palette_blue" />
+            android:layout_toEndOf="@+id/btn_yellow"
+            android:background="@drawable/color_palette_google_green" />
 
         <ImageButton
             android:id="@+id/btn_black"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:layout_toEndOf="@+id/btn_blue"
+            android:layout_toEndOf="@+id/btn_green"
             android:background="@drawable/color_palette_black" />
     </RelativeLayout>
 

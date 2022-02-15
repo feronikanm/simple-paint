@@ -10,6 +10,10 @@
     <color name="red">#fb0008</color>
     <color name="green">#007f00</color>
     <color name="blue">#0078de</color>
+    <color name="google_blue">#4282ef</color>
+    <color name="google_red">#e34033</color>
+    <color name="google_yellow">#f3b706</color>
+    <color name="google_green">#33a453</color>
     <color name="background_selected_icon">#e4e4e4</color>
     <color name="unselected_icon">#747474</color>
 </resources>

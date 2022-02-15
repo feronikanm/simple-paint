@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPencil.setImageResource(R.drawable.ic_selected_pencil)
                 binding.btnPencil.setBackgroundResource(R.drawable.background_cards)
 
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_arrow)
+                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
                 binding.btnArrow.setBackgroundResource(R.drawable.background_card)
                 binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
                 binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnArrow.setOnClickListener {
             isArrowIconClicked = !isArrowIconClicked
             if (isArrowIconClicked){
-                binding.btnArrow.setImageResource(R.drawable.ic_selected_arrow)
+                binding.btnArrow.setImageResource(R.drawable.ic_selected_line)
                 binding.btnArrow.setBackgroundResource(R.drawable.background_cards)
 
                 binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 binding.drawRectangle.visibility = View.GONE
 
             }else{
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_arrow)
+                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
                 binding.btnArrow.setBackgroundResource(R.drawable.background_card)
             }
         }
@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
                 binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_arrow)
+                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
                 binding.btnArrow.setBackgroundResource(R.drawable.background_card)
                 binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
                 binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
                 binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_arrow)
+                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
                 binding.btnArrow.setBackgroundResource(R.drawable.background_card)
                 binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
                 binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
@@ -153,7 +153,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
                 binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_arrow)
+                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
                 binding.btnArrow.setBackgroundResource(R.drawable.background_card)
                 binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
                 binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
@@ -166,8 +166,24 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnBlue.setOnClickListener {
+            paintBrush.color = resources.getColor(R.color.google_blue)
+            currentColor(paintBrush.color)
+            binding.colorPalate.visibility = View.INVISIBLE
+            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+        }
+
         binding.btnRed.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.red)
+            paintBrush.color = resources.getColor(R.color.google_red)
+            currentColor(paintBrush.color)
+            binding.colorPalate.visibility = View.INVISIBLE
+            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+        }
+
+        binding.btnYellow.setOnClickListener {
+            paintBrush.color = resources.getColor(R.color.google_yellow)
             currentColor(paintBrush.color)
             binding.colorPalate.visibility = View.INVISIBLE
             binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
@@ -175,15 +191,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnGreen.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.green)
-            currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-        }
-
-        binding.btnBlue.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.blue)
+            paintBrush.color = resources.getColor(R.color.google_green)
             currentColor(paintBrush.color)
             binding.colorPalate.visibility = View.INVISIBLE
             binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
@@ -203,6 +211,5 @@ class MainActivity : AppCompatActivity() {
         currentBrush = color
         path = Path()
     }
-
 
 }
