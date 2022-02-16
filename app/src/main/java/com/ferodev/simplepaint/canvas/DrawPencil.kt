@@ -93,4 +93,11 @@ class DrawPencil @JvmOverloads constructor(
         }
     }
 
+    fun undo() {
+        if (pencil.size != 0) {
+            pencil.removeAt(pencil.size - 1)
+            invalidate()
+        }
+    }
+
 }

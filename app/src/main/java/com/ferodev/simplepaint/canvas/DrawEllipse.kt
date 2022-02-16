@@ -25,13 +25,6 @@ class DrawEllipse @JvmOverloads constructor(
         paintBrush.isAntiAlias = true
     }
 
-    override fun onDraw(canvas: Canvas) {
-        for (e in ellipse) {
-            paintBrush.color = e.color
-            canvas.drawOval(e.startX, e.startY, e.stopX, e.stopY, paintBrush)
-        }
-    }
-
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when(event.action){
             MotionEvent.ACTION_DOWN -> {
@@ -61,4 +54,19 @@ class DrawEllipse @JvmOverloads constructor(
             }
         }
     }
+
+    override fun onDraw(canvas: Canvas) {
+        for (e in ellipse) {
+            paintBrush.color = e.color
+            canvas.drawOval(e.startX, e.startY, e.stopX, e.stopY, paintBrush)
+        }
+    }
+
+    fun undo() {
+        if (ellipse.size != 0) {
+            ellipse.removeAt(ellipse.size - 1)
+            invalidate()
+        }
+    }
+
 }

@@ -123,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/color_palate">
 
         <com.ferodev.simplepaint.canvas.DrawPencil
-            android:id="@+id/draw_path"
+            android:id="@+id/draw_pencil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"/>

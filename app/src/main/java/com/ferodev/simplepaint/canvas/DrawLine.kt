@@ -15,20 +15,13 @@ class DrawLine @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     companion object{
-        var line = ArrayList<Line>()
+        var line = mutableListOf<Line>()
     }
 
     init {
         paintBrush.color = currentBrush
         paintBrush.strokeWidth = 10f
         paintBrush.isAntiAlias = true
-    }
-
-    override fun onDraw(canvas: Canvas) {
-        for (l in line) {
-            paintBrush.color = l.color
-            canvas.drawLine(l.startX, l.startY, l.stopX, l.stopY, paintBrush)
-        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -58,6 +51,20 @@ class DrawLine @JvmOverloads constructor(
             else -> {
                 return false
             }
+        }
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        for (l in line) {
+            paintBrush.color = l.color
+            canvas.drawLine(l.startX, l.startY, l.stopX, l.stopY, paintBrush)
+        }
+    }
+
+    fun undo() {
+        if (line.size != 0) {
+            line.removeAt(line.size - 1)
+            invalidate()
         }
     }
 }

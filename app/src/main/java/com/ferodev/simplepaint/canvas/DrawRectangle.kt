@@ -25,13 +25,6 @@ class DrawRectangle @JvmOverloads constructor(
         paintBrush.isAntiAlias = true
     }
 
-    override fun onDraw(canvas: Canvas) {
-        for (r in rectangle) {
-            paintBrush.color = r.color
-            canvas.drawRect(r.startX, r.startY, r.stopX, r.stopY, paintBrush)
-        }
-    }
-
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when(event.action){
             MotionEvent.ACTION_DOWN -> {
@@ -61,4 +54,19 @@ class DrawRectangle @JvmOverloads constructor(
             }
         }
     }
+
+    override fun onDraw(canvas: Canvas) {
+        for (r in rectangle) {
+            paintBrush.color = r.color
+            canvas.drawRect(r.startX, r.startY, r.stopX, r.stopY, paintBrush)
+        }
+    }
+
+    fun undo() {
+        if (rectangle.size != 0) {
+            rectangle.removeAt(rectangle.size - 1)
+            invalidate()
+        }
+    }
+
 }

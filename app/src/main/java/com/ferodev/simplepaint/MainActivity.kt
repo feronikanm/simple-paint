@@ -3,13 +3,11 @@ package com.ferodev.simplepaint
 import android.graphics.*
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ferodev.simplepaint.canvas.DrawEllipse.Companion.ellipse
-import com.ferodev.simplepaint.canvas.DrawLine.Companion.line
-import com.ferodev.simplepaint.canvas.DrawPath.Companion.pathList
-import com.ferodev.simplepaint.canvas.DrawPencil.Companion.pencil
-import com.ferodev.simplepaint.canvas.DrawRectangle.Companion.rectangle
+import com.ferodev.simplepaint.canvas.DrawEllipse
+import com.ferodev.simplepaint.canvas.DrawLine
+import com.ferodev.simplepaint.canvas.DrawPencil
+import com.ferodev.simplepaint.canvas.DrawRectangle
 import com.ferodev.simplepaint.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     private var isRectangleIconClicked = false
     private var isCircleIconClicked = false
     private var isPaletteIconClicked = false
+
+    private lateinit var drawPencil: DrawPencil
+    private lateinit var drawLine: DrawLine
+    private lateinit var drawRectangle: DrawRectangle
+    private lateinit var drawEllipse: DrawEllipse
 
     companion object {
         var path = Path()
@@ -34,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
+        drawPencil = findViewById<View>(R.id.draw_pencil) as DrawPencil
+        drawLine = findViewById<View>(R.id.draw_line) as DrawLine
+        drawRectangle = findViewById<View>(R.id.draw_rectangle) as DrawRectangle
+        drawEllipse = findViewById<View>(R.id.draw_ellipse) as DrawEllipse
 
         binding.btnPencil.setOnClickListener {
             // Untuk mengganti dari false menjadi true
@@ -52,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
                 binding.btnPallete.setBackgroundResource(R.drawable.background_card)
 
-                binding.drawPath.visibility = View.VISIBLE
+                binding.drawPencil.visibility = View.VISIBLE
                 binding.drawLine.visibility = View.GONE
                 binding.drawEllipse.visibility = View.GONE
                 binding.drawRectangle.visibility = View.GONE
@@ -79,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPallete.setBackgroundResource(R.drawable.background_card)
 
                 binding.drawLine.visibility = View.VISIBLE
-                binding.drawPath.visibility = View.GONE
+                binding.drawPencil.visibility = View.GONE
                 binding.drawEllipse.visibility = View.GONE
                 binding.drawRectangle.visibility = View.GONE
 
@@ -105,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPallete.setBackgroundResource(R.drawable.background_card)
 
                 binding.drawRectangle.visibility = View.VISIBLE
-                binding.drawPath.visibility = View.GONE
+                binding.drawPencil.visibility = View.GONE
                 binding.drawLine.visibility = View.GONE
                 binding.drawEllipse.visibility = View.GONE
 
@@ -132,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPallete.setBackgroundResource(R.drawable.background_card)
 
                 binding.drawEllipse.visibility = View.VISIBLE
-                binding.drawPath.visibility = View.GONE
+                binding.drawPencil.visibility = View.GONE
                 binding.drawLine.visibility = View.GONE
                 binding.drawRectangle.visibility = View.GONE
 

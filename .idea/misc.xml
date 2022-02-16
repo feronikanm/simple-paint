@@ -24,6 +24,7 @@
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_pencil.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_rectangle.xml" value="0.2205" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_square.xml" value="0.2105" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_selected_undo.xml" value="0.1" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_arrow.xml" value="0.2205" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_circle.xml" value="0.2205" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_line.xml" value="0.1095" />
@@ -31,6 +32,7 @@
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_pencil.xml" value="0.114" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_rectangle.xml" value="0.114" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_square.xml" value="0.2105" />
+        <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/drawable/ic_unselected_undo.xml" value="0.202" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/draw_ellipse_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Tes Kerja/SimplePaint/app/src/main/res/layout/draw_line_layout.xml" value="0.36666666666666664" />
