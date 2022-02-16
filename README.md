@@ -1,4 +1,4 @@
-## Simple Paint Android App with Kotlin
+## Simple Paint Android Apps with Kotlin
 
 ## Screen Shoot Apps
 
