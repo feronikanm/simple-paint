@@ -1,7 +1,7 @@
 ## Simple Paint Android Apps with Kotlin
 
 ## About This Project
-Paint consist of five actions
+Simple paint consist of five actions, such us
 1. Pencil: it is used for free hand drawing
 2. Line: it is user to draw line
 3. Rectangle: it is used to draw a rectangle
@@ -31,6 +31,7 @@ Waiting for your contribute
 ## Insipiration
 - Create a Simple Paint Application in Android using Kotlin ( [GeeksforGeeks](https://www.youtube.com/channel/UC0RhatS1pyxInC00YKjjBqQ) - [Video Tutorial](https://www.youtube.com/watch?v=8mjv_iDSLcw) )
 - How to Create a Paint Application in Android in Java ( [Raghav Sharma](https://github.com/raghavtilak) - [Tutorial](https://www.geeksforgeeks.org/how-to-create-a-paint-application-in-android/) - [Project](https://github.com/raghavtilak/Paint) )
+- DRAW IN CANVAS WITH ANDROID GRAPHICS ( [Tutorial](https://learningprogramming.net/mobile/android/draw-in-canvas-with-android-graphics/) )
 
 ## Attention !!!
 - Please enjoy and don't forget fork and give a star
