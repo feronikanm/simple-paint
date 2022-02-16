@@ -1,11 +1,11 @@
 ## Simple Paint Android Apps with Kotlin
 
 ## About This Project
-Simple paint consist of five actions, such us
-1. Pencil: it is used for free hand drawing
-2. Line: it is user to draw line
-3. Rectangle: it is used to draw a rectangle
-4. Ellipse: it is used to draw a circle/ellipse
+Simple paint consist of five actions, such us:
+1. Pencil, it is used for free hand drawing
+2. Line, it is user to draw line
+3. Rectangle, it is used to draw a rectangle
+4. Ellipse, it is used to draw a circle/ellipse
 5. Color pallet with five colors, inspired with google color
 
 ## Screen Shoot Apps
@@ -38,4 +38,3 @@ Waiting for your contribute
 - Don't Forget Follow My Github Account
 
 ![ScreenShoot Mad Score Apps](docs/images/mad_score.png?raw=true)
-
