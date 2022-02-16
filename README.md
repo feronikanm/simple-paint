@@ -1,16 +1,16 @@
 ## Simple Paint Android Apps with Kotlin
 
 ## About This Project
-Simple paint consist of five actions, such us:
+Simple paint consists of five actions, such as:
 1. Pencil, it is used for free hand drawing
-2. Line, it is user to draw line
+2. Line, it is used to draw line
 3. Rectangle, it is used to draw a rectangle
 4. Ellipse, it is used to draw a circle/ellipse
 5. Color pallet with five colors, inspired with google color
 
-Donwload the apps here [link](https://drive.google.com/file/d/11SrHqBEjH-kYXpc8DcDnW3SgZT2MC81r/view?usp=sharing)
+Download the apps [here](https://drive.google.com/file/d/11SrHqBEjH-kYXpc8DcDnW3SgZT2MC81r/view?usp=sharing).
 
-## Screenshoot Apps
+## Screenshot Apps
 
 |Free Hand Drawing |   Draw a Line              |   Draw a Rectangle    | Draw a Circle |
 |:------------------:|:----------------------------:|:---------------------:|:-----------------:|
@@ -28,15 +28,15 @@ Name of Contributor
 - Waiting List
 - Waiting List
 
-Waiting for your contribute
+Waiting for your contribution
 
-## Insipiration
+## Inspiration
 - Create a Simple Paint Application in Android using Kotlin ( [GeeksforGeeks](https://www.youtube.com/channel/UC0RhatS1pyxInC00YKjjBqQ) - [Video Tutorial](https://www.youtube.com/watch?v=8mjv_iDSLcw) )
 - How to Create a Paint Application in Android in Java ( [Raghav Sharma](https://github.com/raghavtilak) - [Tutorial](https://www.geeksforgeeks.org/how-to-create-a-paint-application-in-android/) - [Project](https://github.com/raghavtilak/Paint) )
 - DRAW IN CANVAS WITH ANDROID GRAPHICS ( [Tutorial](https://learningprogramming.net/mobile/android/draw-in-canvas-with-android-graphics/) )
 
 ## Attention !!!
 - Please enjoy and don't forget fork and give a star
-- Don't Forget Follow My Github Account
+- Don't Forget to Follow My Github Account
 
 ![ScreenShoot Mad Score Apps](docs/images/mad_score.png?raw=true)
