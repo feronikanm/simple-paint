@@ -43,4 +43,6 @@ Waiting for your contribution
 - Free to follow my github account feronikanm
 - Hope this project can help, thankyou for the support
 
+## MAD Scorecard Result
+
 ![Screenshot Mad Score Apps](docs/images/mad_score.png?raw=true)
