@@ -9,7 +9,7 @@ Simple paint consists of five actions, such as:
 4. Ellipse, it is used to draw a circle/ellipse.
 5. Color pallet with five colors, inspired by google color.
 
-Download the apps [here](https://drive.google.com/file/d/11SrHqBEjH-kYXpc8DcDnW3SgZT2MC81r/view?usp=sharing).
+Download the application [here](https://play.google.com/store/apps/details?id=com.ferodev.simplepaint).
 
 ## Screenshot Application
 
