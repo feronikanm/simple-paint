@@ -1,22 +1,19 @@
 package com.ferodev.simplepaint.canvas
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Path
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import com.ferodev.simplepaint.MainActivity.Companion.colorList
 import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
-import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
 import com.ferodev.simplepaint.MainActivity.Companion.path
-
 
 class DrawPath @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-
-    var params : ViewGroup.LayoutParams? = null
 
     companion object {
         private const val TOUCH_TOLERANCE = 4f
@@ -26,18 +23,19 @@ class DrawPath @JvmOverloads constructor(
     private var mX = 0f
     private var mY = 0f
 
+    private val paintBrush = Paint().apply {
+        isAntiAlias = true
+        isDither = true
+        color = currentBrush
+        style = Paint.Style.STROKE
+        strokeJoin = Paint.Join.ROUND
+        strokeCap = Paint.Cap.ROUND
+        strokeWidth = 16f
+        alpha = 0xff
+    }
 
-    init{
-        paintBrush.isAntiAlias = true
-        paintBrush.isDither = true
-        paintBrush.color = currentBrush
-        paintBrush.style = Paint.Style.STROKE
-        paintBrush.strokeJoin = Paint.Join.ROUND
-        paintBrush.strokeCap = Paint.Cap.ROUND
-        paintBrush.strokeWidth = 16f
-        paintBrush.alpha = 0xff
-
-        params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+    fun updateColor(newColor: Int) {
+        paintBrush.color = newColor
     }
 
     private fun touchStart(x: Float, y: Float) {
@@ -83,7 +81,7 @@ class DrawPath @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        for (i in pathList.indices){
+        for (i in pathList.indices) {
             paintBrush.setColor(colorList[i])
             canvas.drawPath(pathList[i], paintBrush)
             invalidate()

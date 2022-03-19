@@ -6,30 +6,31 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.ferodev.simplepaint.cons.Ellipse
 import com.ferodev.simplepaint.MainActivity
 import com.ferodev.simplepaint.MainActivity.Companion.currentBrush
-import com.ferodev.simplepaint.MainActivity.Companion.paintBrush
+import com.ferodev.simplepaint.cons.Ellipse
 
 class DrawEllipse @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    companion object{
-        var ellipse = ArrayList<Ellipse>()
+    private val ellipse = mutableListOf<Ellipse>()
+
+    private val paintBrush = Paint().apply {
+        strokeWidth = 10f
+        color = currentBrush
+        isAntiAlias = true
     }
 
-    init {
-        paintBrush.color = currentBrush
-        paintBrush.strokeWidth = 10f
-        paintBrush.isAntiAlias = true
+    fun updateColor(newColor: Int) {
+        paintBrush.color = newColor
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        when(event.action){
+        when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 MainActivity.colorList.add(MainActivity.currentBrush)
-                ellipse.add(Ellipse(event.x, event.y,event.x, event.y, currentBrush))
+                ellipse.add(Ellipse(event.x, event.y, event.x, event.y, currentBrush))
                 return true
             }
 
