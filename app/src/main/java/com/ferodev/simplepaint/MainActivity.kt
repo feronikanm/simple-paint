@@ -1,29 +1,24 @@
 package com.ferodev.simplepaint
 
-import android.graphics.*
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.ferodev.simplepaint.canvas.DrawEllipse
-import com.ferodev.simplepaint.canvas.DrawLine
-import com.ferodev.simplepaint.canvas.DrawPencil
-import com.ferodev.simplepaint.canvas.DrawRectangle
 import com.ferodev.simplepaint.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
 
     private var isPencilIconClicked = false
     private var isArrowIconClicked = false
     private var isRectangleIconClicked = false
     private var isCircleIconClicked = false
     private var isPaletteIconClicked = false
-
-    private lateinit var drawPencil: DrawPencil
-    private lateinit var drawLine: DrawLine
-    private lateinit var drawRectangle: DrawRectangle
-    private lateinit var drawEllipse: DrawEllipse
 
     companion object {
         var path = Path()
@@ -34,184 +29,181 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         supportActionBar?.hide()
 
-        drawPencil = findViewById<View>(R.id.draw_pencil) as DrawPencil
-        drawLine = findViewById<View>(R.id.draw_line) as DrawLine
-        drawRectangle = findViewById<View>(R.id.draw_rectangle) as DrawRectangle
-        drawEllipse = findViewById<View>(R.id.draw_ellipse) as DrawEllipse
+        binding.apply {
+            btnPencil.setOnClickListener {
+                // Untuk mengganti dari false menjadi true
+                isPencilIconClicked = !isPencilIconClicked
 
-        binding.btnPencil.setOnClickListener {
-            // Untuk mengganti dari false menjadi true
-            isPencilIconClicked = !isPencilIconClicked
+                if (isPencilIconClicked) { // ini untuk mengecek apakah isPencilIconClicked sudah true valuenya
+                    btnPencil.setImageResource(R.drawable.ic_selected_pencil)
+                    btnPencil.setBackgroundResource(R.drawable.background_cards)
 
-            if (isPencilIconClicked) { // ini untuk mengecek apakah isPencilIconClicked sudah true valuenya
-                binding.btnPencil.setImageResource(R.drawable.ic_selected_pencil)
-                binding.btnPencil.setBackgroundResource(R.drawable.background_cards)
+                    btnArrow.setImageResource(R.drawable.ic_unselected_line)
+                    btnArrow.setBackgroundResource(R.drawable.background_card)
+                    btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
+                    btnRectangle.setBackgroundResource(R.drawable.background_card)
+                    btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
+                    btnEllipse.setBackgroundResource(R.drawable.background_card)
+                    btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                    btnPallete.setBackgroundResource(R.drawable.background_card)
 
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
-                binding.btnArrow.setBackgroundResource(R.drawable.background_card)
-                binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
-                binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
-                binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
-                binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
-                binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-                binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+                    drawPencil.visibility = View.VISIBLE
+                    drawLine.visibility = View.GONE
+                    drawEllipse.visibility = View.GONE
+                    drawRectangle.visibility = View.GONE
 
-                binding.drawPencil.visibility = View.VISIBLE
-                binding.drawLine.visibility = View.GONE
-                binding.drawEllipse.visibility = View.GONE
-                binding.drawRectangle.visibility = View.GONE
-
-            } else {
-                binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
-                binding.btnPencil.setBackgroundResource(R.drawable.background_card)
+                } else {
+                    btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
+                    btnPencil.setBackgroundResource(R.drawable.background_card)
+                }
             }
-        }
 
-        binding.btnArrow.setOnClickListener {
-            isArrowIconClicked = !isArrowIconClicked
-            if (isArrowIconClicked){
-                binding.btnArrow.setImageResource(R.drawable.ic_selected_line)
-                binding.btnArrow.setBackgroundResource(R.drawable.background_cards)
+            btnArrow.setOnClickListener {
+                isArrowIconClicked = !isArrowIconClicked
+                if (isArrowIconClicked) {
+                    btnArrow.setImageResource(R.drawable.ic_selected_line)
+                    btnArrow.setBackgroundResource(R.drawable.background_cards)
 
-                binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
-                binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
-                binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
-                binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
-                binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
-                binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-                binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+                    btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
+                    btnPencil.setBackgroundResource(R.drawable.background_card)
+                    btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
+                    btnRectangle.setBackgroundResource(R.drawable.background_card)
+                    btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
+                    btnEllipse.setBackgroundResource(R.drawable.background_card)
+                    btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                    btnPallete.setBackgroundResource(R.drawable.background_card)
 
-                binding.drawLine.visibility = View.VISIBLE
-                binding.drawPencil.visibility = View.GONE
-                binding.drawEllipse.visibility = View.GONE
-                binding.drawRectangle.visibility = View.GONE
+                    drawLine.visibility = View.VISIBLE
+                    drawPencil.visibility = View.GONE
+                    drawEllipse.visibility = View.GONE
+                    drawRectangle.visibility = View.GONE
 
-            }else{
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
-                binding.btnArrow.setBackgroundResource(R.drawable.background_card)
+                } else {
+                    btnArrow.setImageResource(R.drawable.ic_unselected_line)
+                    btnArrow.setBackgroundResource(R.drawable.background_card)
+                }
             }
-        }
 
-        binding.btnRectangle.setOnClickListener {
-            isRectangleIconClicked = !isRectangleIconClicked
-            if (isRectangleIconClicked){
-                binding.btnRectangle.setImageResource(R.drawable.ic_selected_rectangle)
-                binding.btnRectangle.setBackgroundResource(R.drawable.background_cards)
+            btnRectangle.setOnClickListener {
+                isRectangleIconClicked = !isRectangleIconClicked
+                if (isRectangleIconClicked) {
+                    btnRectangle.setImageResource(R.drawable.ic_selected_rectangle)
+                    btnRectangle.setBackgroundResource(R.drawable.background_cards)
 
-                binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
-                binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
-                binding.btnArrow.setBackgroundResource(R.drawable.background_card)
-                binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
-                binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
-                binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-                binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+                    btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
+                    btnPencil.setBackgroundResource(R.drawable.background_card)
+                    btnArrow.setImageResource(R.drawable.ic_unselected_line)
+                    btnArrow.setBackgroundResource(R.drawable.background_card)
+                    btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
+                    btnEllipse.setBackgroundResource(R.drawable.background_card)
+                    btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                    btnPallete.setBackgroundResource(R.drawable.background_card)
 
-                binding.drawRectangle.visibility = View.VISIBLE
-                binding.drawPencil.visibility = View.GONE
-                binding.drawLine.visibility = View.GONE
-                binding.drawEllipse.visibility = View.GONE
+                    drawRectangle.visibility = View.VISIBLE
+                    drawPencil.visibility = View.GONE
+                    drawLine.visibility = View.GONE
+                    drawEllipse.visibility = View.GONE
 
-            }else{
-                binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
-                binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
+                } else {
+                    btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
+                    btnRectangle.setBackgroundResource(R.drawable.background_card)
+                }
             }
-        }
 
-        binding.btnEllipse.setOnClickListener {
-            isCircleIconClicked = !isCircleIconClicked
+            btnEllipse.setOnClickListener {
+                isCircleIconClicked = !isCircleIconClicked
 
-            if (isCircleIconClicked){
-                binding.btnEllipse.setImageResource(R.drawable.ic_selected_circle)
-                binding.btnEllipse.setBackgroundResource(R.drawable.background_cards)
+                if (isCircleIconClicked) {
+                    btnEllipse.setImageResource(R.drawable.ic_selected_circle)
+                    btnEllipse.setBackgroundResource(R.drawable.background_cards)
 
-                binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
-                binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
-                binding.btnArrow.setBackgroundResource(R.drawable.background_card)
-                binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
-                binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
-                binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-                binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+                    btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
+                    btnPencil.setBackgroundResource(R.drawable.background_card)
+                    btnArrow.setImageResource(R.drawable.ic_unselected_line)
+                    btnArrow.setBackgroundResource(R.drawable.background_card)
+                    btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
+                    btnRectangle.setBackgroundResource(R.drawable.background_card)
+                    btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                    btnPallete.setBackgroundResource(R.drawable.background_card)
 
-                binding.drawEllipse.visibility = View.VISIBLE
-                binding.drawPencil.visibility = View.GONE
-                binding.drawLine.visibility = View.GONE
-                binding.drawRectangle.visibility = View.GONE
+                    drawEllipse.visibility = View.VISIBLE
+                    drawPencil.visibility = View.GONE
+                    drawLine.visibility = View.GONE
+                    drawRectangle.visibility = View.GONE
 
-            }else{
-                binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
-                binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
+                } else {
+                    btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
+                    btnEllipse.setBackgroundResource(R.drawable.background_card)
+                }
             }
-        }
 
-        binding.btnPallete.setOnClickListener {
-            isPaletteIconClicked = !isPaletteIconClicked
+            btnPallete.setOnClickListener {
+                isPaletteIconClicked = !isPaletteIconClicked
 
-            if (isPaletteIconClicked){
-                binding.colorPalate.visibility = View.VISIBLE
+                if (isPaletteIconClicked) {
+                    colorPalate.visibility = View.VISIBLE
 
-                binding.btnPallete.setImageResource(R.drawable.ic_selected_palette)
-                binding.btnPallete.setBackgroundResource(R.drawable.background_cards)
+                    btnPallete.setImageResource(R.drawable.ic_selected_palette)
+                    btnPallete.setBackgroundResource(R.drawable.background_cards)
 
-                binding.btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
-                binding.btnPencil.setBackgroundResource(R.drawable.background_card)
-                binding.btnArrow.setImageResource(R.drawable.ic_unselected_line)
-                binding.btnArrow.setBackgroundResource(R.drawable.background_card)
-                binding.btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
-                binding.btnRectangle.setBackgroundResource(R.drawable.background_card)
-                binding.btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
-                binding.btnEllipse.setBackgroundResource(R.drawable.background_card)
-            }else{
-                binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-                binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-                binding.colorPalate.visibility = View.INVISIBLE
+                    btnPencil.setImageResource(R.drawable.ic_unselected_pencil)
+                    btnPencil.setBackgroundResource(R.drawable.background_card)
+                    btnArrow.setImageResource(R.drawable.ic_unselected_line)
+                    btnArrow.setBackgroundResource(R.drawable.background_card)
+                    btnRectangle.setImageResource(R.drawable.ic_unselected_rectangle)
+                    btnRectangle.setBackgroundResource(R.drawable.background_card)
+                    btnEllipse.setImageResource(R.drawable.ic_unselected_circle)
+                    btnEllipse.setBackgroundResource(R.drawable.background_card)
+                } else {
+                    btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                    btnPallete.setBackgroundResource(R.drawable.background_card)
+                    colorPalate.visibility = View.INVISIBLE
+                }
             }
-        }
 
-        binding.btnBlue.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.google_blue)
-            currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-        }
+            btnBlue.setOnClickListener {
+                paintBrush.color = resources.getColor(R.color.google_blue)
+                currentColor(paintBrush.color)
+                colorPalate.visibility = View.INVISIBLE
+                btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                btnPallete.setBackgroundResource(R.drawable.background_card)
+            }
 
-        binding.btnRed.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.google_red)
-            currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-        }
+            btnRed.setOnClickListener {
+                paintBrush.color = resources.getColor(R.color.google_red)
+                currentColor(paintBrush.color)
+                colorPalate.visibility = View.INVISIBLE
+                btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                btnPallete.setBackgroundResource(R.drawable.background_card)
+            }
 
-        binding.btnYellow.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.google_yellow)
-            currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-        }
+            btnYellow.setOnClickListener {
+                paintBrush.color = resources.getColor(R.color.google_yellow)
+                currentColor(paintBrush.color)
+                colorPalate.visibility = View.INVISIBLE
+                btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                btnPallete.setBackgroundResource(R.drawable.background_card)
+            }
 
-        binding.btnGreen.setOnClickListener {
-            paintBrush.color = resources.getColor(R.color.google_green)
-            currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
-        }
+            btnGreen.setOnClickListener {
+                paintBrush.color = resources.getColor(R.color.google_green)
+                currentColor(paintBrush.color)
+                colorPalate.visibility = View.INVISIBLE
+                btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                btnPallete.setBackgroundResource(R.drawable.background_card)
+            }
 
-        binding.btnBlack.setOnClickListener {
-            paintBrush.color = Color.BLACK
-            currentColor(paintBrush.color)
-            binding.colorPalate.visibility = View.INVISIBLE
-            binding.btnPallete.setImageResource(R.drawable.ic_unselected_palette)
-            binding.btnPallete.setBackgroundResource(R.drawable.background_card)
+            btnBlack.setOnClickListener {
+                paintBrush.color = Color.BLACK
+                currentColor(paintBrush.color)
+                colorPalate.visibility = View.INVISIBLE
+                btnPallete.setImageResource(R.drawable.ic_unselected_palette)
+                btnPallete.setBackgroundResource(R.drawable.background_card)
+            }
         }
     }
 

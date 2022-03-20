@@ -32,8 +32,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:background="@null"
             android:layout_toEndOf="@+id/btn_pencil"
+            android:background="@null"
             android:src="@drawable/ic_unselected_line" />
 
         <ImageButton
@@ -41,8 +41,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:background="@null"
             android:layout_toEndOf="@+id/btn_arrow"
+            android:background="@null"
             android:src="@drawable/ic_unselected_rectangle" />
 
         <ImageButton
@@ -50,8 +50,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:background="@null"
             android:layout_toEndOf="@+id/btn_rectangle"
+            android:background="@null"
             android:src="@drawable/ic_unselected_circle" />
 
         <ImageButton
@@ -59,20 +59,20 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:background="@null"
             android:layout_toEndOf="@+id/btn_ellipse"
+            android:background="@null"
             android:src="@drawable/ic_unselected_palette" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/color_palate"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/background_card"
         android:padding="4dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/action"
         app:layout_constraintTop_toBottomOf="@+id/action">
 
@@ -126,25 +126,25 @@
             android:id="@+id/draw_pencil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <com.ferodev.simplepaint.canvas.DrawLine
             android:id="@+id/draw_line"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <com.ferodev.simplepaint.canvas.DrawRectangle
             android:id="@+id/draw_rectangle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <com.ferodev.simplepaint.canvas.DrawEllipse
             android:id="@+id/draw_ellipse"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </RelativeLayout>
 
