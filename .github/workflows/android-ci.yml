@@ -31,15 +31,3 @@ jobs:
       # Run Build Project
       - name: Build project
         run: ./gradlew build
-
-      # Create APK Debug
-      - name: Build apk debug project (APK)
-        run: ./gradlew assembleDebug
-        
-      # Upload Artifact Build
-      # Noted For Output [module-name]/build/outputs/
-      - name: Upload build APK / AAB
-        uses: actions/upload-artifact@v2
-        with:
-          name: App bundle(s) and APK(s) generated
-          path: app/build/outputs/
